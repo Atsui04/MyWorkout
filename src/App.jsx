@@ -1,7 +1,22 @@
-function App() {
-  const name = "Mark";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import AppLayout from "./AppLayout";
+import Home from "./Home";
 
-  return <div>Hello, {name}!</div>;
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+    ],
+  },
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
 }
 
 export default App;
