@@ -1,3 +1,9 @@
+:root {
+  --primary-color: #495057;
+  --text-color: #e9ecef;
+  --font-stack: sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,4 +12,21 @@
 
 html {
   font-size: 62.5%;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-family: var(--font-stack);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1.2rem 2.4rem;
+  cursor: pointer;
+  border-radius: 11px;
+  text-decoration: none;
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 0 auto;
 }
