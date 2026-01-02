@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 
-function Home() {
+const Home = function () {
   return (
     <div className={styles.hero}>
       <div className={styles.heroText}>
@@ -8,10 +9,12 @@ function Home() {
         <p>A convenient and simple for everyone</p>
       </div>
       <div style={{ textAlign: "center" }}>
-        <a className={`btn ${styles.btnCta}`}>Go to Tracking</a>
+        <Link className={`btn ${styles.btnCta}`} to="/">
+          Go to Tracking
+        </Link>
       </div>
     </div>
   );
-}
+};
 
 export default Home;

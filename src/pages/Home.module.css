@@ -1,11 +1,11 @@
 .hero {
-  margin: 0 auto;
-  margin-top: 6.4rem;
-  width: 130rem;
+  text-align: center;
 }
 
 .heroText {
-  width: 100rem;
+  max-width: 100rem;
+  width: 100%;
+  padding: 0 2.4rem;
   margin: 0 auto;
   margin-bottom: 3.2rem;
 }
@@ -24,17 +24,11 @@
 .btnCta {
   background-color: #f1f3f5;
   color: var(--primary-color);
-  border: 2px solid #343a40;
+  border: 1px solid #343a40;
   transition: all 0.3s;
   font-weight: 500;
 }
 
 .btnCta:hover {
   background-color: #dee2e6;
-}
-
-.hero h1,
-.hero p,
-.hero button {
-  text-align: center;
 }
