@@ -1,0 +1,57 @@
+.button {
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Sizes */
+.sm {
+  padding: 0.6rem 1.2rem;
+  font-size: 1.4rem;
+}
+
+.md {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.6rem;
+}
+
+.lg {
+  padding: 1.2rem 2.4rem;
+  font-size: 1.8rem;
+}
+
+/* Variants */
+.primary {
+  background-color: var(--accent-color, #4dabf7);
+  color: #fff;
+}
+
+.primary:hover {
+  opacity: 0.9;
+}
+
+.secondary {
+  background-color: #e9ecef;
+  color: #212529;
+}
+
+.secondary:hover {
+  background-color: #dee2e6;
+}
+
+.ghost {
+  background: transparent;
+  color: inherit;
+}
+
+.ghost:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Disabled */
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

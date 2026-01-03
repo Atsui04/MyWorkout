@@ -1,0 +1,12 @@
+.tabList {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 1.8rem;
+  background-color: #343a40;
+  border-top-left-radius: 55px;
+  border-top-right-radius: 55px;
+  padding: 1.8rem 2.4rem;
+}

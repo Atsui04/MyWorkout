@@ -1,3 +1,4 @@
+import Button from "../../ui/Button/Button";
 import styles from "./ExerciseCard.module.css";
 
 const ExerciseCard = ({ exercise, onCompleted }) => {
@@ -17,9 +18,14 @@ const ExerciseCard = ({ exercise, onCompleted }) => {
           </p>
         ))}
 
-        <button className={styles.btn} onClick={() => onCompleted(id)}>
+        <Button
+          className={styles.btn}
+          variant=""
+          size="lg"
+          onClick={() => onCompleted(id)}
+        >
           {completed ? "Cancel ❌" : "Completed ✅"}
-        </button>
+        </Button>
       </div>
     </div>
   );

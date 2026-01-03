@@ -1,0 +1,4 @@
+.active {
+  border-bottom: 3px solid var(--accent-color);
+  font-weight: 600;
+}
