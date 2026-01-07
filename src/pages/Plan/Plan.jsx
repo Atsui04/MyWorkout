@@ -5,6 +5,7 @@ import styles from "./Plan.module.css";
 import { DAYS, today } from "../../constants/days";
 import CreateWorkout from "./../../components/Plan/Workouts/CreateWorkout";
 import EmptyWorkouts from "./../../components/Plan/Workouts/EmptyWorkouts";
+import WorkoutsList from "../../components/Plan/Workouts/WorkoutsList";
 
 const initialState = {
   mode: "empty",
@@ -36,6 +37,7 @@ function reducer(state, action) {
       return {
         ...state,
         mode: "workouts",
+        exercises: [...state.exercises, action.payload],
       };
 
     default:
@@ -64,6 +66,9 @@ const Plan = () => {
           <EmptyWorkouts activeDay={activeDay} dispatch={dispatch} />
         )}
         {state.mode === "creating" && <CreateWorkout dispatch={dispatch} />}
+        {state.mode === "workouts" && (
+          <WorkoutsList exercises={state.exercises} />
+        )}
       </TabPanel>
     </div>
   );

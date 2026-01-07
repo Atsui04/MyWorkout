@@ -1,4 +1,4 @@
-import ExerciseCard from "./ExerciseCard";
+import ExerciseCard from "../Exercises/ExerciseCard";
 import styles from "./WorkoutDay.module.css";
 
 const WorkoutDay = ({ day, splitType, exercises, onCompleted }) => {
@@ -22,7 +22,7 @@ const WorkoutDay = ({ day, splitType, exercises, onCompleted }) => {
           </p>
         </div>
       )}
-
+      {/*  */}
       <div className={styles.workouts}>
         {exercises.map((exercise) => (
           <ExerciseCard

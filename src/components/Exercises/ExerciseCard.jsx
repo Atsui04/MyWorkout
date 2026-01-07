@@ -3,6 +3,9 @@ import styles from "./ExerciseCard.module.css";
 
 const ExerciseCard = ({ exercise, onCompleted }) => {
   const { id, name, sets, reps, weights, completed } = exercise;
+  // Check if there more than 1 reps
+  const repsCount = reps.length;
+  console.log(repsCount);
 
   return (
     <div
@@ -12,15 +15,20 @@ const ExerciseCard = ({ exercise, onCompleted }) => {
       <div className={styles.cardContent}>
         <p>Sets: {sets}</p>
 
-        {reps.map((rep, i) => (
-          <p key={i}>
-            Rep {i + 1}: {rep} × {weights[i]} kg
+        {repsCount > 1 ? (
+          reps.map((rep, i) => (
+            <p key={i}>
+              Rep {i + 1}: {rep} × {weights[i]} kg
+            </p>
+          ))
+        ) : (
+          <p>
+            Rep: {reps} × {weights} kg
           </p>
-        ))}
+        )}
 
         <Button
           className={styles.btn}
-          variant=""
           size="lg"
           onClick={() => onCompleted(id)}
         >

@@ -1,0 +1,30 @@
+.formItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.label,
+.input {
+  font-size: 1.8rem;
+}
+
+.input {
+  padding: 1.2rem 1.8rem;
+  border: 1px solid #212529;
+  border-radius: 9px;
+  width: 100%;
+}
+
+.input::placeholder {
+  font-style: italic;
+}
+
+.error {
+  min-height: 1.6rem;
+  font-size: 1.4rem;
+  color: #fa5252;
+}

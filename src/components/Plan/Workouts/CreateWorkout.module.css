@@ -35,36 +35,11 @@
   box-shadow: 0 0 0 3px rgba(52, 58, 64, 0.35), 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.label,
-.input {
-  font-size: 1.8rem;
-}
-
-.input {
-  padding: 1.2rem 1.8rem;
-  border: 1px solid #212529;
-  border-radius: 9px;
-  width: 100%;
-}
-
-.input::placeholder {
-  font-style: italic;
-}
-
 .select {
   padding: 1.2rem 1.8rem;
   font-size: 1.8rem;
   border-radius: 9px;
   cursor: pointer;
-}
-
-.formItem {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  gap: 0.8rem;
-  width: 100%;
 }
 
 .buttons {
