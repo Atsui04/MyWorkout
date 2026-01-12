@@ -1,5 +1,9 @@
 .active {
   border-bottom: 3px solid var(--accent-color);
   font-weight: 600;
-  font-size: 2rem;
+}
+
+.tab {
+  flex: 0 0 auto;
+  min-width: 64px;
 }
