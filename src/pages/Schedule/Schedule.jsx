@@ -1,8 +1,10 @@
-import styles from "./Schedule.module.css";
-import WorkoutDay from "../../components/Schedule/WorkoutDay";
 import { useState } from "react";
-import { today } from "../../constants/days";
 import { useOutletContext } from "react-router-dom";
+
+import { today } from "../../constants/days";
+import styles from "./Schedule.module.css";
+
+import WorkoutDay from "../../components/Schedule/WorkoutDay";
 
 const Schedule = () => {
   const { workouts, dispatch } = useOutletContext();
@@ -18,7 +20,7 @@ const Schedule = () => {
     });
   };
 
-  if (dayState.mode !== "workouts") {
+  if (dayState.mode !== "workouts" && dayState.mode !== "rest") {
     return <p className={styles.h2}>No workouts for today</p>;
   }
 
@@ -30,6 +32,8 @@ const Schedule = () => {
         day={activeDay}
         exercises={dayState.exercises}
         onCompleted={handleCompleted}
+        dayState={dayState}
+        activeDay={activeDay}
       />
     </div>
   );

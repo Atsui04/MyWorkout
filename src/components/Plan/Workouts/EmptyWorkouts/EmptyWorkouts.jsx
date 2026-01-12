@@ -1,5 +1,5 @@
 import styles from "./EmptyWorkouts.module.css";
-import Button from "./../../../ui/Button/Button";
+import Button from "../../../../ui/Button/Button";
 
 const EmptyWorkouts = ({ activeDay, dispatch }) => {
   return (

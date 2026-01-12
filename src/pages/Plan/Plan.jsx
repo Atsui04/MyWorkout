@@ -6,9 +6,11 @@ import TabList from "../../components/Plan/Tabs/TabList";
 import TabPanel from "../../components/Plan/Tabs/TabPanel";
 import { DAYS, today } from "../../constants/days";
 
-import CreateWorkout from "./../../components/Plan/Workouts/CreateWorkout";
-import EmptyWorkouts from "./../../components/Plan/Workouts/EmptyWorkouts";
+import CreateWorkout from "../../components/Plan/Workouts/CreateWorkout/CreateWorkout";
+import EmptyWorkouts from "../../components/Plan/Workouts/EmptyWorkouts/EmptyWorkouts";
 import WorkoutsList from "../../components/Plan/Workouts/WorkoutsList";
+import EditWorkout from "../../components/Plan/Workouts/EditWorkout/EditWorkout";
+import RestDay from "../../components/Plan/Workouts/RestDay/RestDay";
 
 const Plan = () => {
   const [activeDay, setActiveDay] = useState(today);
@@ -48,7 +50,19 @@ const Plan = () => {
           />
         )}
 
-        {dayState.mode === "rest" && <p className={styles.rest}>Rest day 😴</p>}
+        {dayState.mode === "rest" && (
+          <RestDay dispatch={dispatch} activeDay={activeDay} mode="plan" />
+        )}
+
+        {dayState.mode === "edit" && (
+          <EditWorkout
+            exercise={dayState.exercises.find(
+              (ex) => ex.id === dayState.editingId
+            )}
+            activeDay={activeDay}
+            dispatch={dispatch}
+          />
+        )}
       </TabPanel>
     </div>
   );

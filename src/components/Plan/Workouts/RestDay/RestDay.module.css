@@ -1,0 +1,11 @@
+.rest {
+  width: 80%;
+  color: #495057;
+  text-align: center;
+  font-size: 3.2rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.4rem;
+}

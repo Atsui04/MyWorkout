@@ -1,51 +1,20 @@
-import { useReducer } from "react";
+import Button from "../../../../ui/Button/Button";
+import FormItem from "../FormItem/FormItem";
+import styles from "./WorkoutForm.module.css";
 
-import { v4 as uuidv4 } from "uuid";
-
-import Button from "../../../ui/Button/Button";
-import FormItem from "./FormItem/FormItem";
-
-import styles from "./CreateWorkout.module.css";
-import { formReducer, initialState, validate } from "./formReducer";
-
-const CreateWorkout = ({ dispatch, activeDay }) => {
-  const [formState, formDispatch] = useReducer(formReducer, initialState);
-
-  const handleSubmit = function (e) {
-    e.preventDefault();
-
-    // Error checking
-    const errors = validate(formState);
-
-    formDispatch({
-      type: "form/setErrors",
-      payload: errors,
-    });
-
-    if (Object.keys(errors).length > 0) return;
-
-    const workout = {
-      id: uuidv4(),
-      name: formState.name,
-      sets: formState.sets,
-      reps: formState.reps,
-      weights: formState.weights,
-      completed: false,
-    };
-
-    // If everything is okay
-    console.log("Workout data:", workout);
-
-    dispatch({ type: "SUBMIT_EXERCISE", payload: workout, day: activeDay });
-
-    formDispatch({ type: "form/reset" });
-  };
-
+const WorkoutForm = ({
+  title,
+  formState,
+  formDispatch,
+  onSubmit,
+  onCancel,
+  submitText = "Submit",
+}) => {
   return (
     <div className={styles.formContainer}>
-      <p className={styles.p}>Create a workout:</p>
-      <form className={styles.form} onSubmit={handleSubmit} noValidate>
-        {/* Exercise name */}
+      <p className={styles.p}>{title}</p>
+
+      <form className={styles.form} onSubmit={onSubmit} noValidate>
         <FormItem
           label="Enter exercise name"
           name="name"
@@ -60,7 +29,7 @@ const CreateWorkout = ({ dispatch, activeDay }) => {
             })
           }
         />
-        {/* Exercise sets */}
+
         <FormItem
           label="Choose number of sets"
           name="sets"
@@ -76,7 +45,7 @@ const CreateWorkout = ({ dispatch, activeDay }) => {
             })
           }
         />
-        {/* Exercise reps */}
+
         <FormItem
           label="Enter number of reps"
           name="reps"
@@ -92,9 +61,9 @@ const CreateWorkout = ({ dispatch, activeDay }) => {
             })
           }
         />
-        {/* Exercise weights */}
+
         <FormItem
-          label="Enter weight(in kg)"
+          label="Enter weight (kg)"
           name="weights"
           type="number"
           min={0}
@@ -108,21 +77,21 @@ const CreateWorkout = ({ dispatch, activeDay }) => {
             })
           }
         />
+
         <div className={styles.buttons}>
           <Button
             type="submit"
             size="lg"
             disabled={Object.values(formState.errors).some(Boolean)}
           >
-            Submit
+            {submitText}
           </Button>
+
           <Button
             variant="secondary"
             size="lg"
-            onClick={() => {
-              formDispatch({ type: "form/reset" });
-              dispatch({ type: "EMPTY", day: activeDay });
-            }}
+            type="button"
+            onClick={onCancel}
           >
             Cancel
           </Button>
@@ -132,4 +101,4 @@ const CreateWorkout = ({ dispatch, activeDay }) => {
   );
 };
 
-export default CreateWorkout;
+export default WorkoutForm;

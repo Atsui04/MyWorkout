@@ -9,7 +9,7 @@ const Home = () => {
         <p>A convenient and simple for everyone</p>
       </div>
       <div style={{ textAlign: "center" }}>
-        <Link className={`btn ${styles.btnCta}`} to="/">
+        <Link className={`btn ${styles.btnCta}`} to="/plan">
           Go to Tracking
         </Link>
       </div>

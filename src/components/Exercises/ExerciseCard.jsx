@@ -6,6 +6,7 @@ const ExerciseCard = ({
   onCompleted,
   mode = "schedule",
   onDelete,
+  onEdit,
 }) => {
   const { id, name, sets, reps, weights, completed } = exercise;
 
@@ -51,7 +52,9 @@ const ExerciseCard = ({
         {/* Plan mode */}
         {mode === "plan" && (
           <div className={styles.actions}>
-            <Button variant="secondary">Edit 📝</Button>
+            <Button variant="secondary" onClick={onEdit}>
+              Edit 📝
+            </Button>
             <Button variant="primary" onClick={() => onDelete(id)}>
               Delete ❌
             </Button>

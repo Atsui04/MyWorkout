@@ -55,14 +55,46 @@ export function reducer(state, action) {
         },
       };
 
+    case "START_EDIT_EXERCISE":
+      return {
+        ...state,
+        [action.day]: {
+          ...dayState,
+          mode: "edit",
+          editingId: action.payload,
+        },
+      };
+
     case "EDIT_EXERCISE":
       return {
         ...state,
         [action.day]: {
           ...dayState,
           mode: "workouts",
-          exercises: dayState.exercises.map((ex) =>
-            ex.id === action.payload.id ? { ...ex, ...action.payload } : ex
+          editingId: null,
+          exercises: updateExercise(
+            dayState.exercises,
+            action.payload.id,
+            (ex) => ({ ...ex, ...action.payload })
+          ),
+        },
+      };
+
+    case "EDIT_ACTUAL":
+      return {
+        ...state,
+        [action.day]: {
+          ...dayState,
+          exercises: updateExercise(
+            dayState.exercises,
+            action.payload.id,
+            (ex) => ({
+              ...ex,
+              actual: {
+                ...ex.actual,
+                ...action.payload.updates,
+              },
+            })
           ),
         },
       };
@@ -98,6 +130,15 @@ export function reducer(state, action) {
         [action.day]: {
           mode: "rest",
           exercises: [],
+        },
+      };
+
+    case "CANCEL":
+      return {
+        ...state,
+        [action.day]: {
+          mode: dayState.exercises.length > 0 ? "workouts" : "empty",
+          exercises: dayState.exercises,
         },
       };
 

@@ -30,6 +30,13 @@ const WorkoutsList = ({
                   payload: ex.id,
                 })
               }
+              onEdit={() =>
+                dispatch({
+                  type: "START_EDIT_EXERCISE",
+                  day: activeDay,
+                  payload: ex.id,
+                })
+              }
             />
           ))}
           {exercises.length < 10 && (
