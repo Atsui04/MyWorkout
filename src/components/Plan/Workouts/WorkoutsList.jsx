@@ -32,7 +32,9 @@ const WorkoutsList = ({
               }
             />
           ))}
-          <AddExerciseCard dispatch={dispatch} activeDay={activeDay} />
+          {exercises.length < 10 && (
+            <AddExerciseCard dispatch={dispatch} activeDay={activeDay} />
+          )}
         </>
       )}
     </div>
